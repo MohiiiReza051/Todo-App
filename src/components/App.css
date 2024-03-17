@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'overpass bold';
+    src: url(../font/overpass-bold.otf);
+    font-weight: bold;
+}
+.App {
+    width: 960px;
+    margin: 50px auto;;
+    gap: 10px;
+}
+.title {
+    font-family: 'overpass bold';
+    text-align: center;
+    font-size: 45px;
+    color: #656484;
+}
+
+@media screen and (max-width: 800px) {
+    .App {
+      width: 350px;
+    }
+  }

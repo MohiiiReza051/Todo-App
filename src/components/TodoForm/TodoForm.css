@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "overpass bold";
+    src: url(../../font/overpass-bold.otf);
+}
+@font-face {
+    font-family: "overpass regular";
+    src: url(../../font/overpass-regular.otf);
+}
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --primary-purple: #5f71f0;
+    --primary-red: #F50057;
+}
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f8f9ff;
+}
+.container {
+    width: 960px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.container form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo-input {
+    width: 150px;
+    padding: 10px 15px;
+    border: 1px solid var(--black);
+    font-family: "overpass regular";
+    border-radius: 5px;
+    transition: 0.5s;
+}
+.todo-input:focus {
+    width: 700px;
+    border: 1px solid var(--primary-purple);
+    background-color: #dadada;
+}
+.btns {
+    border-radius: 5px;
+    color: var(--white);
+    font-family: "overpass regular";
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.5s;
+}
+.add-todo-btn {
+    border: 1px solid var(--primary-purple);
+    background-color: var(--primary-purple);
+}
+.remove-todos-btn {
+    border: 1px solid var(--primary-red);
+    background-color: var(--primary-red);
+}
+.add-todo-btn:hover {
+    color: var(--black);
+    background-color: #d8ddff;
+}
+.remove-todos-btn:hover {
+    color: var(--black);
+    background-color: #ec95b3;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        width: 350px;
+    }
+    .todo-input {
+        max-width: 150px;
+    }
+    .btn-con {
+        display: flex;
+    }
+
+}

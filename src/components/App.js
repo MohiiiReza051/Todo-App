@@ -1,10 +1,14 @@
 import './App.css';
+import { useState } from "react";
+import TodoForm from './TodoForm/TodoForm'
 
-const App = () =>
-{
+function App() {
+  const [todos, setTodos] = useState([]);
+
   return (
-    <div className="App">
-      
+    <div className='App'>
+      <h1 className='title'>Todo List</h1>
+      <TodoForm todos={todos} setTodos={setTodos} />
     </div>
   );
 }
