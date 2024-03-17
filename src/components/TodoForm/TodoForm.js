@@ -63,7 +63,11 @@ const TaskForm = ({ todos, setTodos }) =>
     }
 
     // Function to delete all todos
-    const handleDeleteTodos = () => setTodos([]);
+    const handleDeleteTodos = () => 
+    {
+        setTodos([]);
+        localStorage.clear();
+    }
 
     // Function to clear input field
     const clearInput = todoInput => todoInput.value = '';
