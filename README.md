@@ -2,7 +2,7 @@
 This project serves as a practical exercise to apply learned concepts. Here, we delve into designing and implementing a To-Do. It is Implemented using React for To master more of what I learned.
 
 # Project Preview
-![Project-Preview](./src/Image/project-preview.png)
+![Project-Preview](https://github.com/MohiiiReza051/Todo-App/blob/master/src/preview-img/project-preview.png)
 
 # License
 This project is licensed under MIT.

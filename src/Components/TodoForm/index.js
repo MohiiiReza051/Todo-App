@@ -1,4 +1,4 @@
-import './TodoForm.css'
+import '../../styles/TodoForm.css';
 
 
 // Function to store todos array information in local storage

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { setDataIntoLocalStorage } from '../TodoForm/TodoForm';
-import './TaskList.css'
+import { setDataIntoLocalStorage } from '../TodoForm';
+import '../../styles/TaskList.css';
 
 const TaskList = ({ todos, setTodos }) =>
 {

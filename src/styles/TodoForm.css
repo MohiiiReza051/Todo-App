@@ -1,10 +1,10 @@
 @font-face {
     font-family: "overpass bold";
-    src: url(../../font/overpass-bold.otf);
+    src: url(../font/overpass-bold.otf);
 }
 @font-face {
     font-family: "overpass regular";
-    src: url(../../font/overpass-regular.otf);
+    src: url(../font/overpass-regular.otf);
 }
 :root {
     --white: #ffffff;

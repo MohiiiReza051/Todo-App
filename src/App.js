@@ -1,7 +1,7 @@
-import './App.css';
+import './styles/App.css';
 import { useState } from "react";
-import TodoForm from './TodoForm/TodoForm';
-import TaskList from './TaskList/TaskList';
+import TodoForm from './Components/TodoForm/index';
+import TaskList from './Components/TaskList/index';
 
 const App = () =>
 {
