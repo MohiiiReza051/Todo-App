@@ -49,7 +49,8 @@ const TaskForm = ({ todos, setTodos }) =>
                 title: todoInput.value,
                 isComplete: false,
                 time: time,
-                date: `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
+                date: `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`,
+                isEdited: false
             }
 
             // Update the todos state and local storage
@@ -78,6 +79,7 @@ const TaskForm = ({ todos, setTodos }) =>
                 <input type="text" className='todo-input' placeholder='type todo...'
                 onBlur={handleInputBlur}
                 onFocus={e => e.target.style.width = '700px'}
+                maxLength={100}
                  />
                 <div className="btn-con">
                     <input type="button" value="Add Todo" className='add-todo-btn btns' onClick={handleClickAddTask} />
