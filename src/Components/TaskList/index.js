@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { setDataIntoLocalStorage } from '../TodoForm';
+import ListItem from "./ListItem";
 import '../../styles/TaskList.css';
 
 const TaskList = ({ todos, setTodos }) =>
@@ -54,53 +55,15 @@ const TaskList = ({ todos, setTodos }) =>
             <ul className="todo-list">
               {/* Render todos in the DOM */}
               {todos.map(todo =>             
-                <li className="list-item" key={todo.id}>
-                  <div className='status-and-title-con'>
-                    <div className="checkbox-complete">
-                      {/* Checkbox to mark todo as complete */}
-                      <input type="checkbox" id={'cb-' + todo.id} onChange={() => handleChangeCheckBox(todo.id)} checked={todo.isComplete && true} />
-                      <label htmlFor={'cb-' + todo.id} className="check-box" />
-                    </div>
-                    <div className='todo-title'>
-
-                      {
-                        editingTodoId === todo.id ?
-                         <input
-                         type="text" 
-                         className="todo-title-field editing-todo"
-                         value={todo.title}
-                         onChange={e => handleEditTodo(todo.id, e)}
-                         maxLength={100}
-                        />:
-                        <p className="show-todo-title"
-                        // Display todo title with styling based on completion status
-                        style={
-                        {
-                          textDecoration: todo.isComplete ? 'line-through' : 'none',
-                          color: todo.isComplete ? '#727272' : '#000000'
-                        }
-                        }>
-                          {todo.title}
-                        </p>
-                      }
-
-                      {/* Display todo time and date */}
-                      <p className='time'>{todo.time + ', ' + todo.date}{editingTodoId === todo.id ? ', editing' : (todo.isEdited && ', edited')}</p>
-                    </div>
-                  </div>
-                   {/* Button to delete todo */}
-                  <div className="trash-edit-btns">
-
-                   {/* Buttons to edit todo and set that changes */}
-                    {
-                    editingTodoId === todo.id ?
-                    <i className='bx bx-check' onClick={() => setEditingTodoId(null)}></i> :
-                    <i className='bx bxs-edit-alt' onClick={() => setEditingTodoId(todo.id)}></i>
-                    }
-
-                    <i className='bx bxs-trash-alt' onClick={() => handleClickDelete(todo.id)}></i>
-                  </div>
-                </li>
+                <ListItem
+                  key={todo.id}
+                  todo={todo}
+                  editingTodoId={editingTodoId}
+                  onCheckboxChange={handleChangeCheckBox}
+                  onDeleteClick={handleClickDelete}
+                  onEditTodo={handleEditTodo}
+                  onSetEditingTodoId={setEditingTodoId}
+                />
               )}
             </ul>
         </div>

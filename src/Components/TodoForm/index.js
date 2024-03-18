@@ -1,14 +1,9 @@
+import { useState } from 'react';
 import '../../styles/TodoForm.css';
-
-
-// Function to store todos array information in local storage
-const setDataIntoLocalStorage = todoList =>
-{
-    return localStorage.setItem('todos', JSON.stringify(todoList));
-}
 
 const TaskForm = ({ todos, setTodos }) =>
 {
+    const [todoInput, setTodoInput] = useState('');
 
     // Prevent the page from reloading when submitting the todo form
     const handleSubmitFrom = e =>
@@ -33,8 +28,7 @@ const TaskForm = ({ todos, setTodos }) =>
     // Function to handle adding a new task
     const handleClickAddTask = () =>
     {
-        let todoInput = document.querySelector('.todo-input');
-        if (todoInput.value.trim()) {
+        if (todoInput.trim()) {
             const date = new Date();
 
             // Get the current time like: 01:27 PM
@@ -46,7 +40,7 @@ const TaskForm = ({ todos, setTodos }) =>
             // Create a new todo object
             const newTodo = {
                 id: todos.length + 1,
-                title: todoInput.value,
+                title: todoInput,
                 isComplete: false,
                 time: time,
                 date: `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`,
@@ -57,9 +51,8 @@ const TaskForm = ({ todos, setTodos }) =>
             setTodos([...todos, newTodo]);
             setDataIntoLocalStorage([...todos, newTodo]);
 
-            // Clear the input field and remove focus
-            clearInput(todoInput);
-            todoInput.blur();
+            // Clear the input field
+            clearInput();
         }
     }
 
@@ -71,23 +64,44 @@ const TaskForm = ({ todos, setTodos }) =>
     }
 
     // Function to clear input field
-    const clearInput = todoInput => todoInput.value = '';
+    const clearInput = () => setTodoInput('');
 
     return (
         <div className='container'>
             <form onSubmit={handleSubmitFrom}>
-                <input type="text" className='todo-input' placeholder='type todo...'
-                onBlur={handleInputBlur}
-                onFocus={e => e.target.style.width = '700px'}
-                maxLength={100}
-                 />
+                <input
+                    type="text"
+                    className='todo-input'
+                    placeholder='type todo...'
+                    onBlur={handleInputBlur}
+                    onFocus={e => e.target.style.width = '700px'}
+                    onInput={e => setTodoInput(e.target.value)}
+                    value={todoInput}
+                    maxLength={100}
+                />
                 <div className="btn-con">
-                    <input type="button" value="Add Todo" className='add-todo-btn btns' onClick={handleClickAddTask} />
-                    <input type="button" value="Delete All" className='remove-todos-btn btns' onClick={handleDeleteTodos} />
+                    <input
+                        type="button"
+                        value="Add Todo"
+                        className='add-todo-btn btns'
+                        onClick={handleClickAddTask}
+                    />
+                    <input
+                        type="button"
+                        value="Delete All"
+                        className='remove-todos-btn btns'
+                        onClick={handleDeleteTodos}
+                    />
                 </div>
             </form>
         </div>
     )
+}
+
+// Function to store todos array information in local storage
+const setDataIntoLocalStorage = todoList =>
+{
+    return localStorage.setItem('todos', JSON.stringify(todoList));
 }
 
 export { setDataIntoLocalStorage };
