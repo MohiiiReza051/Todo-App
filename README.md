@@ -7,9 +7,6 @@ This project serves as a practical exercise to apply learned concepts. Here, I d
 My todo app features:
 
 - **Adding Todos:** Users can easily add new todos to the list.
--Deleting Todos: Allows users to remove existing todos from the list.
--Editing Todos: Users have the ability to edit todo titles and save changes.
--Local Storage: Todos are saved locally in the browser's storage, ensuring data persistence even after closing the page.
 
 - **Deleting Todos:** Allows users to remove existing todos from the list.
 
